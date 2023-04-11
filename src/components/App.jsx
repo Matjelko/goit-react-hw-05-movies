@@ -1,9 +1,11 @@
-import MainPage from "./MainPage";
+// import MainPage from "./MainPage";
+import MoviePage from "./MoviePage";
 
 const App = () => {
   return (
     <>
-      <MainPage/>
+      {/* <MainPage/> */}
+      <MoviePage/>
     </>
   );
 };
