@@ -11,6 +11,7 @@ const MoviePage = () => {
         event.preventDefault()
 
         const input = event.target[0].value;
+        // console.log(event)
         const URL = `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${input}`
   
         const fetchMovies = async () => {
