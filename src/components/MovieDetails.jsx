@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 // import Cast from "./Cast";
 // import Reviews from "./Reviews";
 
 const MovieDetails = () => {
     const KEY = "6cd416a210a971fc6ba2d58e4253069e"
-    const { id } = useParams();
+    const { id } = useParams()
     const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}`
 
-    const [movies, setMovies ] = useState(null)
+    const [movies, setMovies ] = useState()
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -27,7 +27,7 @@ const MovieDetails = () => {
     const { title, poster_path, vote_average, overview, genres } = movies
     return(
         <>
-            Now showing movie with id - {id}
+            {/* Now showing movie with id - {id} */}
             <div>
                 <img src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`${title}`} />
             </div>
@@ -41,15 +41,20 @@ const MovieDetails = () => {
                 <h3>Genres</h3>
                 <ul>
                     {genres.map((genre) => (
-                        <li>{genre.name}</li>
+                        <li key={genre.id}>{genre.name}</li>
                     ))}
                 </ul>
             </div>
             <div>Additional information</div>
             <ul>
-                <Link to={`/movies/${id}/cast`}><li>Cast</li></Link>
-                <Link to={`/movies/${id}/reviews`}><li>Reviews</li></Link>
+                <li>
+                    <Link to={`/movies/${id}/cast`}>Cast</Link>
+                </li>
+                <li>
+                    <Link to={`/movies/${id}/reviews`}>Reviews</Link>
+                </li>
             </ul>
+            <Outlet/>
             {/* <Cast/> */}
             {/* <Reviews/> */}
         </>
