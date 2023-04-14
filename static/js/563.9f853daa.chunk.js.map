@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/563.9f853daa.chunk.js","mappings":"gMAUA,EARe,WACX,OACI,+BACI,kDAGX,C","sources":["components/Button/Button.jsx"],"sourcesContent":["import \"./Button.css\"\n\nconst Button = () => {\n    return(\n        <>\n            <button> ← Go back </button>\n        </>\n    )\n}\n\nexport default Button"],"names":[],"sourceRoot":""}
