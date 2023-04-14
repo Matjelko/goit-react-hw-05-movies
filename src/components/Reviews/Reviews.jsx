@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import PropTypes from "prop-types"
+import "./Reviews.css"
 
 const Reviews = () => {
     const KEY = "6cd416a210a971fc6ba2d58e4253069e"
@@ -26,17 +28,25 @@ const Reviews = () => {
     const { results } = movies
 
     return(
-        <>
-            <ul>
+        <div className="reviews__section">
+            <ul className="reviews__unlisted-list">
                 {results.map((result) => (
                     <li key={result.id}>
-                        <span>Author: {result.author}</span>
-                        <p>{result.content}</p>
+                        <span className="reviews__author">Author: {result.author}</span>
+                        <p className="reviews__paragraph">{result.content}</p>
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     )
+}
+
+Reviews.propTypes = {
+    KEY: PropTypes.string,
+    URL: PropTypes.string,
+    id: PropTypes.number,
+    handleSubmit: PropTypes.func,
+    fetchMovies: PropTypes.func
 }
 
 export default Reviews

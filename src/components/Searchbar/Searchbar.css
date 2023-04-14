@@ -1,0 +1,18 @@
+.searchbar__input{
+    height: 20px;
+    width: 300px;
+}
+
+.searchbar__button{
+    background-color: transparent;
+    margin-left: 10px;
+    height: 26px;
+    border-width: 1px;
+    border-radius: 4px;
+    background-color: lightgray;
+}
+
+.searchbar__button:hover{
+    cursor: pointer;
+    background-color: lightblue;
+}

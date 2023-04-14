@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
-import MovieItem from "./MovieItem"
-// import PropTypes from 'prop-types';
+import MovieItem from "../MovieItem/MovieItem"
+import PropTypes from 'prop-types';
+import "./MainPage.css"
 
 const MainPage = () => {
     const KEY = "6cd416a210a971fc6ba2d58e4253069e"
@@ -19,7 +20,7 @@ const MainPage = () => {
     
     return(
         <div>
-            <h2>Trending today</h2>
+            <h2 className="mainPage__header">Trending today</h2>
             <ul>
                 {movies.map(movie => (
                     <MovieItem
@@ -31,6 +32,12 @@ const MainPage = () => {
             </ul>
         </div>
     )
+}
+
+MainPage.propTypes = {
+    KEY: PropTypes.string,
+    URL: PropTypes.string,
+    fetchMovies: PropTypes.func,
 }
 
 export default MainPage

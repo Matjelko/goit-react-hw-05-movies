@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import PropTypes from 'prop-types'
+import "./Cast.css"
 
 const Cast = () => {
     const KEY = "6cd416a210a971fc6ba2d58e4253069e"
@@ -24,18 +26,28 @@ const Cast = () => {
     const { cast } = movies
 
     return(
-        <>
-            <ul>
+        <div className="cast__section">
+            <ul className="cast__unlisted-list">
                 {cast.map((el) => (
                     <li key={el.id}>
-                        <img src={`https://image.tmdb.org/t/p/w500${el.profile_path}`} alt={el.name} />
-                        <p>{el.name}</p>
-                        {el.character}
+                        <img className="cast__poster" src={`https://image.tmdb.org/t/p/w500${el.profile_path}`} alt={el.name} />
+                        <div className="cast__actor-data-section">
+                            <p>{el.name}</p>
+                            <span>{el.character}</span>
+                        </div>
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     )
+}
+
+Cast.propTypes = {
+    KEY: PropTypes.string,
+    URL: PropTypes.string,
+    id: PropTypes.number,
+    fetchMovies: PropTypes.func,
+    cast: PropTypes.array
 }
 
 export default Cast

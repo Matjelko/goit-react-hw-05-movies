@@ -1,6 +1,7 @@
-import Searchbar from "./Searchbar"
-import MovieItem from "./MovieItem"
+import Searchbar from "../Searchbar/Searchbar"
+import MovieItem from "../MovieItem/MovieItem"
 import { useState } from "react"
+import PropTypes from "prop-types"
 
 const MoviePage = () => {
     const KEY = "6cd416a210a971fc6ba2d58e4253069e"
@@ -23,7 +24,9 @@ const MoviePage = () => {
     }
 
     return(
-        <>
+        <div style={{
+            marginTop: 40
+        }}>
             <Searchbar handleSubmit={handleSubmit}/>
             <ul>
                 {movies.map(movie => (
@@ -34,8 +37,15 @@ const MoviePage = () => {
                     />
                 ))}
             </ul>
-        </>
+        </div>
     )
+}
+
+MoviePage.propTypes = {
+    KEY: PropTypes.string,
+    URL: PropTypes.string,
+    handleSubmit: PropTypes.func,
+    fetchMovies: PropTypes.func
 }
 
 export default MoviePage

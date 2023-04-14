@@ -1,0 +1,37 @@
+.movieDetails__poster{
+    max-width: 300px;
+}
+
+.movieDetails__section{
+    margin-left: 50px;
+}
+
+.movieDetails__header{
+    font-size: 30px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+
+}
+
+.movieDetails__header--additional{
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+.movieDetails__paragraph{
+    font-size: 16px;
+    max-width: 500px;
+}
+
+.movieDetails__unlisted-list{
+    list-style-type: none;
+    margin-top: 10px;
+    padding-left: 0px;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.movieDetails__unlisted-list--list-item{
+    margin-bottom: 10px;
+}
