@@ -21,22 +21,32 @@ const Reviews = () => {
 
     if(!movies){
         return(
-            <div>We don't have any reviews for this movie.</div>
+            <div>Loading...</div>
         )
     }
+
+    // if(!movies){
+    //     return(
+    //         <div>We don't have any reviews for this movie.</div>
+    //     )
+    // }
 
     const { results } = movies
 
     return(
         <div className="reviews__section">
+            {movies.results.length === 0 ? (
+                <div>We don't have any reviews for this movie.</div>
+            ) : (
             <ul className="reviews__unlisted-list">
                 {results.map((result) => (
                     <li key={result.id}>
                         <span className="reviews__author">Author: {result.author}</span>
                         <p className="reviews__paragraph">{result.content}</p>
-                    </li>
+                        </li>
                 ))}
             </ul>
+            )}
         </div>
     )
 }
