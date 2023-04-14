@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components"
 import PropTypes from 'prop-types';
-import "./MovieItem.css"
 
 const StyledNavLink = styled(NavLink)`
   color: black;
