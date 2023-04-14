@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { NavLink, Outlet } from "react-router-dom";
-import { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import styled from "styled-components"
 import PropTypes from 'prop-types';
 import "./MovieDetails.css"
+const Button = lazy(() => import("../../components/Button/Button"))
 
 const StyledNavLink = styled(NavLink)`
     color: black;
@@ -21,6 +22,11 @@ const MovieDetails = () => {
     const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}`
 
     const [movies, setMovies ] = useState()
+    
+    const location = useLocation();
+    const backLinkHref = location.state?.from ?? "/movies";
+
+    // console.log(backLinkHref)
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -38,10 +44,15 @@ const MovieDetails = () => {
     const { title, poster_path, vote_average, overview, genres } = movies
     return(
         <>
+            <NavLink to={backLinkHref}>
+                <Button/>
+            </NavLink>
+            
             <div style={{
-                marginTop: 40,
+                marginTop: 20,
                 display: 'flex'
             }}>
+                
                 {/* Now showing movie with id - {id} */}
                 <div>
                     <img className="movieDetails__poster" src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={`${title}`} />

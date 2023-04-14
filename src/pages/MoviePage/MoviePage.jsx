@@ -1,5 +1,5 @@
-import Searchbar from "../Searchbar/Searchbar"
-import MovieItem from "../MovieItem/MovieItem"
+import Searchbar from "../../components/Searchbar/Searchbar"
+import MovieItem from "../../components/MovieItem/MovieItem"
 import { useState } from "react"
 import PropTypes from "prop-types"
 

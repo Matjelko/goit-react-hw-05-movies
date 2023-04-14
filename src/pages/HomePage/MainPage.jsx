@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import MovieItem from "../MovieItem/MovieItem"
+import MovieItem from "../../components/MovieItem/MovieItem"
 import PropTypes from 'prop-types';
 import "./MainPage.css"
 

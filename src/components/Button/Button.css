@@ -1,0 +1,13 @@
+button{
+    margin-top: 40px;
+    background-color: transparent;
+    width: 90px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: lightblue;
+    transition: 1s;
+}
