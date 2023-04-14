@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink, Outlet } from "react-router-dom";
+import { Suspense } from "react";
 import styled from "styled-components"
 import PropTypes from 'prop-types';
 import "./MovieDetails.css"
@@ -75,7 +76,9 @@ const MovieDetails = () => {
                     </li>
                 </ul>
                 <hr/>
-                <Outlet/>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <Outlet/>
+                </Suspense>
             </div>
         </>
     )
