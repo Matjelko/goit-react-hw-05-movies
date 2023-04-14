@@ -25,12 +25,6 @@ const Reviews = () => {
         )
     }
 
-    // if(!movies){
-    //     return(
-    //         <div>We don't have any reviews for this movie.</div>
-    //     )
-    // }
-
     const { results } = movies
 
     return(
