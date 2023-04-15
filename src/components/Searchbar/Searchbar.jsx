@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import "./Searchbar.css"
 
-const Searchbar = ({  handleSubmit }) => {
+const Searchbar = ({ handleSubmit, value, onChange }) => {
     return(
         <form onSubmit={handleSubmit}>
             <input
@@ -10,6 +10,8 @@ const Searchbar = ({  handleSubmit }) => {
                 autoComplete="off"
                 autoFocus
                 placeholder="Search Film..."
+                value={value}
+                onChange={(evt) => onChange(evt.target.value)}
             />
             <button className="searchbar__button" type="submit">Search</button>
         </form>

@@ -1,12 +1,25 @@
 import Searchbar from "../../components/Searchbar/Searchbar"
 import MovieItem from "../../components/MovieItem/MovieItem"
 import { useState } from "react"
+import { useSearchParams } from "react-router-dom";
 import PropTypes from "prop-types"
 
 const MoviePage = () => {
     const KEY = "6cd416a210a971fc6ba2d58e4253069e"
     
     const [ movies, setMovies ] = useState([])
+
+    const [searchParams, setSearchParams] = useSearchParams()
+    const query = searchParams.get("query") ?? "";
+
+    // const visibleMovies = movies.filter((movie) => 
+    //     movie.name.toLowerCase().includes(query.toLowerCase())
+    // );
+
+    const updateQueryString = (query) => {
+        const nextParams = query !== "" ? { query } : {}
+        setSearchParams(nextParams);
+    }
 
     const handleSubmit = async event => {
         event.preventDefault()
@@ -27,7 +40,11 @@ const MoviePage = () => {
         <div style={{
             marginTop: 40
         }}>
-            <Searchbar handleSubmit={handleSubmit}/>
+            <Searchbar 
+                handleSubmit={handleSubmit}
+                value={query}
+                onChange={updateQueryString}
+            />
             <ul>
                 {movies.map(movie => (
                     <MovieItem
